@@ -1,26 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #8b1e1e;
+  --color-primary-dark: #6b1616;
+  --color-primary-light: #a82525;
+  --color-accent: #e8d5a8;
+  --color-accent-dark: #d4bc8a;
+  --color-accent-light: #f2e5c0;
+  --color-dark: #2b2320;
+  --color-cream: #fbf6ee;
+  --color-cream-dark: #f0e8d8;
+  --color-wa: #25d366;
+  --color-wa-dark: #1da851;
+  --font-devanagari: "Noto Serif Devanagari", serif;
+  --font-sans: "Poppins", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fbf6ee;
+  color: #2b2320;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-devanagari {
+  font-family: "Noto Serif Devanagari", serif;
+  line-height: 1.85;
+}
+
+/* Centering container — bypasses Tailwind v4 max-w naming issues */
+.section-container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Extra breathing room for Devanagari headings so top matras aren't cut */
+.deva-heading {
+  line-height: 1.5;
+  padding-top: 0.25rem;
+}
+
+.deva-body {
+  line-height: 2;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fbf6ee;
+}
+::-webkit-scrollbar-thumb {
+  background: #8b1e1e;
+  border-radius: 3px;
+}
+
+/* Pulse animation for CTA buttons */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 30, 30, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(139, 30, 30, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 30, 30, 0);
+  }
+}
+
+@keyframes pulse-ring-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.pulse-red {
+  animation: pulse-ring 2s infinite;
+}
+
+.pulse-green {
+  animation: pulse-ring-green 2s infinite;
+}
+
+/* Gold shimmer on headings */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #e8d5a8 0%,
+    #f5e6bc 40%,
+    #fff8e1 50%,
+    #f5e6bc 60%,
+    #e8d5a8 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
 }
