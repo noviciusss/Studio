@@ -116,7 +116,7 @@ export default function Services() {
   const titleInView = useInView(titleRef, { once: true });
 
   return (
-    <section id="services" className="py-24 bg-[#fbf6ee]">
+    <section id="services" className="py-36 bg-[#fbf6ee]">
       <Container>
         {/* Section title */}
         <motion.div

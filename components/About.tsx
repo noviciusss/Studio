@@ -39,7 +39,7 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 bg-[#fbf6ee]">
+    <section id="about" className="pt-36 pb-32 bg-[#fbf6ee]">
       <Container>
         <motion.div
           ref={ref}
@@ -79,19 +79,20 @@ export default function About() {
             </p>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap gap-3 mb-8">
+            <div className="flex flex-wrap gap-3.5 mb-8">
               {[
                 "📸 Wedding Photography",
                 "🖨️ Printing & Photostat",
                 "🪪 PAN Card Services",
                 "⚡ Urgent Photo",
               ].map((tag) => (
-                <span
+                <motion.span
                   key={tag}
-                  className="bg-[#8b1e1e]/8 border border-[#8b1e1e]/20 text-[#8b1e1e] text-xs px-4 py-2 rounded-full font-medium"
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-[#8b1e1e]/5 border border-[#8b1e1e]/30 text-[#8b1e1e] text-sm px-6 py-3.5 rounded-full font-semibold cursor-pointer shadow-sm hover:bg-[#8b1e1e]/10 transition-colors inline-block"
                 >
                   {tag}
-                </span>
+                </motion.span>
               ))}
             </div>
 

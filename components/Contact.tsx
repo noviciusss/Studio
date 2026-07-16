@@ -10,7 +10,7 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="contact" className="py-24 bg-[#fbf6ee]">
+    <section id="contact" className="py-36 bg-[#fbf6ee]">
       <Container>
         {/* Title */}
         <motion.div

@@ -77,7 +77,7 @@ export default function Navbar() {
           <a
             href="tel:+919415415800"
             id="navbar-call-btn"
-            className="flex items-center gap-2 bg-[#e8d5a8] text-[#8b1e1e] px-4 py-2 rounded-full font-semibold text-sm hover:bg-white transition-all hover:scale-105 shadow-md"
+            className="flex items-center gap-2 bg-[#e8d5a8] text-[#8b1e1e] px-6 py-3 rounded-full font-semibold text-sm hover:bg-white transition-all hover:scale-105 shadow-md"
           >
             <Phone size={14} />
             Call Now
@@ -88,7 +88,7 @@ export default function Navbar() {
         <div className="flex md:hidden items-center gap-3">
           <a
             href="tel:+919415415800"
-            className="flex items-center gap-1 bg-[#e8d5a8] text-[#8b1e1e] px-3 py-1.5 rounded-full text-xs font-semibold"
+            className="flex items-center gap-1 bg-[#e8d5a8] text-[#8b1e1e] px-5 py-2.5 rounded-full text-xs font-semibold"
           >
             <Phone size={12} />
             Call

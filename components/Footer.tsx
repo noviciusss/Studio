@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#2b2320] text-[#e8d5a8]">
       {/* Main footer */}
-      <Container className="py-20">
+      <Container className="pt-28 pb-20">
         <div className="grid md:grid-cols-3 gap-16">
           {/* Brand */}
           <div className="md:col-span-1">
@@ -40,10 +40,10 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest uppercase text-[#e8d5a8]/50 mb-5">
+            <h4 className="text-xs font-semibold tracking-widest uppercase text-[#e8d5a8]/50 mb-6">
               Quick Links
             </h4>
-            <div className="space-y-5">
+            <div className="space-y-6">
               {[
                 { hi: "होम", en: "Home", href: "#home" },
                 { hi: "सेवाएं", en: "Services", href: "#services" },
@@ -64,10 +64,10 @@ export default function Footer() {
 
           {/* Contact repeat */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest uppercase text-[#e8d5a8]/50 mb-5">
+            <h4 className="text-xs font-semibold tracking-widest uppercase text-[#e8d5a8]/50 mb-6">
               संपर्क · Contact
             </h4>
-            <div className="space-y-7">
+            <div className="space-y-8">
               <a
                 href="tel:+919415415800"
                 className="flex items-center gap-3 text-[#e8d5a8]/70 hover:text-[#e8d5a8] transition-colors text-sm group"

@@ -15,7 +15,7 @@ export default function Gallery() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="gallery" className="py-24 bg-white">
+    <section id="gallery" className="py-36 bg-white">
       <Container>
         {/* Title */}
         <motion.div
@@ -101,9 +101,10 @@ export default function Gallery() {
         >
           <a
             href="https://wa.me/919415415800"
+            id="gallery-wa-btn"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25d366] text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-[#1da851] transition-all hover:scale-105 shadow-lg"
+            className="inline-flex items-center gap-3 bg-[#25d366] text-white px-8 py-4 rounded-full text-base font-bold hover:bg-[#1da851] transition-all hover:scale-105 shadow-lg"
           >
             💬 WhatsApp पर अपना काम देखें · Ask us on WhatsApp
           </a>
