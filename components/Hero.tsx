@@ -45,7 +45,7 @@ export default function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-[#e8d5a8] animate-pulse" />
           <span className="text-[#e8d5a8] text-xs font-medium tracking-wider uppercase">
-            1980 से आपके साथ · Est. 1980
+            विश्वसनीय सेवाएं · Professional Services
           </span>
         </motion.div>
 

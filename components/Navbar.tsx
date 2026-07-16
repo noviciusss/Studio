@@ -25,11 +25,37 @@ const navInner: React.CSSProperties = {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    // Active Section Observer
+    const sections = ["home", "services", "gallery", "contact"];
+    const observers = sections.map((id) => {
+      const el = document.getElementById(id);
+      if (!el) return null;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(id);
+            }
+          });
+        },
+        { rootMargin: "-35% 0px -55% 0px" } // trigger when section occupies main center of viewport
+      );
+      observer.observe(el);
+      return { el, observer };
+    });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      observers.forEach((obs) => {
+        if (obs && obs.el) obs.observer.unobserve(obs.el);
+      });
+    };
   }, []);
 
   return (
@@ -60,20 +86,38 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="flex flex-col items-center group"
-            >
-              <span className="font-devanagari text-sm text-[#e8d5a8] group-hover:text-white transition-colors">
-                {link.label}
-              </span>
-              <span className="text-[9px] text-[#e8d5a8]/50 group-hover:text-[#e8d5a8] transition-colors">
-                {link.en}
-              </span>
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.slice(1);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="flex flex-col items-center group relative py-1"
+              >
+                <span
+                  className={`font-devanagari text-sm transition-colors duration-300 ${
+                    isActive ? "text-white font-bold" : "text-[#e8d5a8]/80 group-hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </span>
+                <span
+                  className={`text-[9px] transition-colors duration-300 ${
+                    isActive ? "text-[#e8d5a8] font-medium" : "text-[#e8d5a8]/50 group-hover:text-[#e8d5a8]"
+                  }`}
+                >
+                  {link.en}
+                </span>
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNavIndicator"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#e8d5a8] rounded-full"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </Link>
+            );
+          })}
           <a
             href="tel:+919415415800"
             id="navbar-call-btn"
@@ -114,19 +158,27 @@ export default function Navbar() {
             className="md:hidden overflow-hidden bg-[#8b1e1e]/95 backdrop-blur-md border-t border-[#e8d5a8]/20"
           >
             <nav className="flex flex-col py-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-3 px-6 py-3 hover:bg-white/10 transition-colors"
-                >
-                  <span className="font-devanagari text-[#e8d5a8] text-base">
-                    {link.label}
-                  </span>
-                  <span className="text-[#e8d5a8]/50 text-xs">— {link.en}</span>
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.slice(1);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`flex items-center justify-between px-6 py-3 transition-colors ${
+                      isActive ? "bg-white/10 text-white" : "text-[#e8d5a8]/80 hover:bg-white/5 hover:text-white"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="font-devanagari text-base font-medium">
+                        {link.label}
+                      </span>
+                      <span className="opacity-60 text-xs">— {link.en}</span>
+                    </div>
+                    {isActive && <div className="w-1.5 h-1.5 rounded-full bg-[#e8d5a8]" />}
+                  </Link>
+                );
+              })}
             </nav>
           </motion.div>
         )}

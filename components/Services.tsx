@@ -19,6 +19,8 @@ import {
   IdCard,
   Map,
   ScrollText,
+  Phone,
+  MessageCircle,
 } from "lucide-react";
 
 type Service = {
@@ -85,6 +87,8 @@ const cardVariants: Variants = {
 };
 
 function ServiceCard({ service, index }: { service: Service; index: number }) {
+  const isWhatsAppPrint = service.hi === "WhatsApp प्रिंट";
+
   return (
     <motion.div
       custom={index}
@@ -92,21 +96,69 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
-      whileHover={{ y: -4, boxShadow: "0 12px 32px rgba(139,30,30,0.12)" }}
-      className="bg-white rounded-xl p-5 border border-[#e8d5a8]/30 flex items-start gap-4 cursor-default transition-all"
+      whileHover={{
+        y: -4,
+        boxShadow: isWhatsAppPrint
+          ? "0 12px 32px rgba(37,211,102,0.18)"
+          : "0 12px 32px rgba(139,30,30,0.12)",
+      }}
+      className={`rounded-xl p-5 border flex items-start gap-4 cursor-default transition-all relative group ${
+        isWhatsAppPrint
+          ? "bg-gradient-to-br from-[#25d366]/5 to-[#25d366]/10 border-[#25d366]/50 shadow-sm"
+          : "bg-white border-[#e8d5a8]/30"
+      }`}
     >
-      <div className="w-10 h-10 rounded-lg bg-[#8b1e1e]/8 flex items-center justify-center text-[#8b1e1e] flex-shrink-0 mt-0.5">
+      <div
+        className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 ${
+          isWhatsAppPrint
+            ? "bg-[#25d366]/15 text-[#1da851]"
+            : "bg-[#8b1e1e]/8 text-[#8b1e1e]"
+        }`}
+      >
         {service.icon}
       </div>
-      <div>
-        <p className="font-devanagari text-[#2b2320] text-sm font-semibold" style={{ lineHeight: 1.7 }}>
-          {service.hi}
-        </p>
+      <div className="flex-1 pr-8">
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <p className="font-devanagari text-[#2b2320] text-sm font-semibold" style={{ lineHeight: 1.7 }}>
+            {service.hi}
+          </p>
+          {isWhatsAppPrint && (
+            <span className="bg-[#25d366] text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+              ⚡ फ़ास्ट सर्विस
+            </span>
+          )}
+        </div>
         <p className="text-[#2b2320]/50 text-xs mt-0.5">{service.en}</p>
-        <p className="text-[#8b1e1e] text-[10px] mt-1.5 font-medium">
-          संपर्क करें · Contact for pricing
+        <p
+          className={`text-[10px] mt-1.5 font-semibold ${
+            isWhatsAppPrint ? "text-[#1da851]" : "text-[#8b1e1e]"
+          }`}
+        >
+          {isWhatsAppPrint ? "WhatsApp पर फ़ाइल भेजें" : "संपर्क करें · Contact for pricing"}
         </p>
       </div>
+
+      {isWhatsAppPrint ? (
+        <a
+          href="https://wa.me/919415415800?text=नमस्ते%20सागर%20स्टूडियो%2C%20मुझे%20WhatsApp%20प्रिंट%20करवाना%20है।%20मैं%20अपनी%20फ़ाइल%20भेज%20रहा/रही%20हूँ।"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Send file on WhatsApp"
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#25d366]/10 hover:bg-[#25d366] text-[#1da851] hover:text-white flex items-center justify-center transition-all shadow-sm hover:scale-110"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <MessageCircle size={14} />
+        </a>
+      ) : (
+        <a
+          href="tel:+919415415800"
+          title="Call for details"
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#8b1e1e]/8 hover:bg-[#8b1e1e] text-[#8b1e1e] hover:text-white flex items-center justify-center transition-all shadow-sm hover:scale-110"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <Phone size={14} />
+        </a>
+      )}
     </motion.div>
   );
 }
@@ -116,7 +168,7 @@ export default function Services() {
   const titleInView = useInView(titleRef, { once: true });
 
   return (
-    <section id="services" className="py-36 bg-[#fbf6ee]">
+    <section id="services" style={{ paddingTop: "10rem", paddingBottom: "10rem" }} className="bg-[#fbf6ee]">
       <Container>
         {/* Section title */}
         <motion.div
@@ -124,7 +176,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 30 }}
           animate={titleInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-24"
         >
           <div className="flex items-center justify-center gap-3 mb-10">
             <div className="w-10 h-0.5 bg-[#8b1e1e]" />
@@ -143,7 +195,7 @@ export default function Services() {
         </motion.div>
 
         {/* Category groups */}
-        <div className="space-y-16">
+        <div className="space-y-24">
           {categories.map((cat, catIdx) => (
             <div key={catIdx}>
               {/* Category header */}
@@ -165,7 +217,7 @@ export default function Services() {
               </motion.div>
 
               {/* Service cards grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
                 {cat.services.map((svc, i) => (
                   <ServiceCard key={i} service={svc} index={i} />
                 ))}

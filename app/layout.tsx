@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "सागर स्टूडियो | Sagar Studio — Gadwara Tiraha, Pratapgarh",
   description:
-    "सागर स्टूडियो — फोटोग्राफी, प्रिंटिंग और सरकारी सेवाएं। गड़वारा तिराहा, प्रतापगढ़ में 1980 से। Photography, printing & government services at Gadwara Tiraha, Pratapgarh UP since 1980. Call: 9415415800",
+    "सागर स्टूडियो — फोटोग्राफी, प्रिंटिंग और सरकारी सेवाएं। गड़वारा तिराहा, प्रतापगढ़। Professional photography, printing and digital government services at Gadwara Tiraha, Pratapgarh. Call: 9415415800",
   keywords: [
     "सागर स्टूडियो",
     "Sagar Studio",
@@ -19,8 +19,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: "सागर स्टूडियो | Sagar Studio — Pratapgarh",
     description:
-      "फोटोग्राफी, प्रिंटिंग और सरकारी सेवाएं — 1980 से आपके साथ।",
+      "फोटोग्राफी, प्रिंटिंग और सरकारी सेवाएं — प्रतापगढ़।",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Sagar Studio Pratapgarh",
+      },
+    ],
   },
 };
 

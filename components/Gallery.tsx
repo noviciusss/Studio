@@ -2,20 +2,75 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Camera } from "lucide-react";
+import { MessageCircle, Camera } from "lucide-react";
 import { Container } from "@/components/Container";
+import Image from "next/image";
 
-const placeholders = Array.from({ length: 8 }, (_, i) => ({
-  id: i + 1,
-  label: i < 3 ? "Wedding" : i < 5 ? "Portrait" : i < 7 ? "Printing" : "Special",
-}));
+const items = [
+  {
+    id: 1,
+    label: "शादी की फोटोग्राफी",
+    en: "Wedding Photography",
+    img: "/gallery/wedding.png",
+    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपकी शादी की फोटोग्राफी (Wedding Photography) के सैंपल देखने हैं।",
+  },
+  {
+    id: 2,
+    label: "प्री-वेडिंग शूट",
+    en: "Pre-Wedding Shoot",
+    img: "/gallery/wedding.png",
+    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपके प्री-वेडिंग शूट (Pre-Wedding) के सैंपल देखने हैं।",
+  },
+  {
+    id: 3,
+    label: "इवेंट कवरेज",
+    en: "Event Coverage",
+    img: "/gallery/wedding.png",
+    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपके इवेंट कवरेज (Event Coverage) के सैंपल देखने हैं।",
+  },
+  {
+    id: 4,
+    label: "पारिवारिक पोर्ट्रेट",
+    en: "Family Portrait",
+    img: "/gallery/portrait.png",
+    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपके पारिवारिक पोर्ट्रेट (Family Portrait) के सैंपल देखने हैं।",
+  },
+  {
+    id: 5,
+    label: "कैंडिड शूट",
+    en: "Candid Shoot",
+    img: "/gallery/portrait.png",
+    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपके कैंडिड शूट (Candid Photography) के सैंपल देखने हैं।",
+  },
+  {
+    id: 6,
+    label: "शादी के निमंत्रण कार्ड",
+    en: "Wedding Invitation Cards",
+    img: "/gallery/printing.png",
+    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपके द्वारा प्रिंट किए गए शादी के कार्ड के सैंपल देखने हैं।",
+  },
+  {
+    id: 7,
+    label: "कस्टम प्रिंटिंग",
+    en: "Custom Printing",
+    img: "/gallery/printing.png",
+    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपकी पम्पलेट और कस्टम प्रिंटिंग के सैंपल देखने हैं।",
+  },
+  {
+    id: 8,
+    label: "डिजिटल एल्बम व फ्रेम",
+    en: "Digital Album & Framing",
+    img: "/gallery/special.png",
+    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपके कस्टमाइज्ड फोटो फ्रेम और एल्बम डिजाइन के सैंपल देखने हैं।",
+  },
+];
 
 export default function Gallery() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="gallery" className="py-36 bg-white">
+    <section id="gallery" style={{ paddingTop: "10rem", paddingBottom: "10rem" }} className="bg-white">
       <Container>
         {/* Title */}
         <motion.div
@@ -36,59 +91,56 @@ export default function Gallery() {
             गैलरी
           </h2>
           <p className="text-[#2b2320]/60 text-sm">
-            Our work — photos, albums, wedding cards &amp; more
+            हमारे वास्तविक कार्य के सैंपल देखने के लिए किसी भी फ़ोटो पर क्लिक करें
           </p>
         </motion.div>
 
-        {/* Coming soon banner */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="mb-10 text-center"
-        >
-          <span className="inline-block bg-[#8b1e1e]/6 border border-[#8b1e1e]/15 rounded-full py-2.5 px-6">
-            <span className="font-devanagari text-[#8b1e1e] text-sm" style={{ lineHeight: 1.6 }}>
-              📷 फ़ोटो जल्द जोड़े जाएंगे —{" "}
-            </span>
-            <span className="text-[#2b2320]/50 text-xs">
-              Photos coming soon
-            </span>
-          </span>
-        </motion.div>
-
-        {/* Placeholder grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-          {placeholders.map((ph, i) => (
-            <motion.div
-              key={ph.id}
+        {/* Gallery Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          {items.map((item, i) => (
+            <motion.a
+              key={item.id}
+              href={`https://wa.me/919415415800?text=${encodeURIComponent(item.waMsg)}`}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.1 + i * 0.06, duration: 0.5 }}
-              whileHover={{ scale: 1.03 }}
-              className="relative group aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[#e8d5a8]/30 to-[#8b1e1e]/10 border-2 border-dashed border-[#8b1e1e]/20 cursor-pointer"
+              whileHover={{ y: -6 }}
+              className="relative group aspect-square rounded-2xl overflow-hidden border border-[#e8d5a8]/40 shadow-sm hover:shadow-lg transition-all cursor-pointer bg-[#fbf6ee]"
             >
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-[#8b1e1e]/0 group-hover:bg-[#8b1e1e]/40 transition-all duration-300 flex items-center justify-center">
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center gap-1 text-white">
-                  <Camera size={22} />
-                  <span className="text-xs font-medium">View</span>
-                </div>
+              {/* Main Photo */}
+              <div className="absolute inset-0 w-full h-full">
+                <Image
+                  src={item.img}
+                  alt={item.en}
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500 brightness-[0.98] group-hover:brightness-90"
+                />
               </div>
 
-              {/* Placeholder content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center p-3">
-                <div className="w-10 h-10 rounded-full bg-[#8b1e1e]/10 flex items-center justify-center">
-                  <Camera size={18} className="text-[#8b1e1e]/40" />
-                </div>
-                <span className="text-[#8b1e1e]/40 text-[11px] font-medium">
-                  {ph.label}
-                </span>
-                <span className="text-[#2b2320]/25 text-[10px]">
-                  Photo #{ph.id}
-                </span>
+              {/* Title Overlay (Bottom bar) */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 z-10">
+                <p className="font-devanagari text-white text-xs font-bold leading-relaxed">
+                  {item.label}
+                </p>
+                <p className="text-white/60 text-[9px] uppercase tracking-wider mt-0.5">
+                  {item.en}
+                </p>
               </div>
-            </motion.div>
+
+              {/* Hover overlay with WhatsApp trigger visual */}
+              <div className="absolute inset-0 bg-[#25d366]/0 group-hover:bg-[#25d366]/75 transition-all duration-300 flex items-center justify-center z-20">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center gap-1.5 text-white text-center p-3">
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <MessageCircle size={20} />
+                  </div>
+                  <span className="text-[11px] font-bold font-devanagari">व्हाट्सएप पर सैंपल देखें</span>
+                  <span className="text-[9px] uppercase tracking-wider opacity-90">WhatsApp Samples</span>
+                </div>
+              </div>
+            </motion.a>
           ))}
         </div>
 
@@ -97,10 +149,10 @@ export default function Gallery() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.8, duration: 0.5 }}
-          className="mt-12 text-center"
+          className="mt-14 text-center"
         >
           <a
-            href="https://wa.me/919415415800"
+            href="https://wa.me/919415415800?text=नमस्ते%20सागर%20स्टूडियो%2C%20मुझे%20आपके%20काम%20की%20गैलरी%20के%20और%20सैंपल्स%20देखने%20हैं।"
             id="gallery-wa-btn"
             target="_blank"
             rel="noopener noreferrer"

@@ -20,10 +20,10 @@ export default function Footer() {
               Sagar Studio
             </p>
             <p className="font-devanagari text-[#e8d5a8]/70 text-sm mb-1" style={{ lineHeight: 1.9 }}>
-              1980 से आपके भरोसे का नाम
+              विश्वसनीय फोटोग्राफी एवं डिजिटल सेवाएं
             </p>
             <p className="text-[#e8d5a8]/40 text-xs mb-4">
-              A trusted name since 1980
+              Trusted photography and digital services.
             </p>
             <div className="border-t border-[#e8d5a8]/10 pt-4 mt-4">
               <p className="text-[#e8d5a8]/80 text-xs font-semibold">
@@ -67,7 +67,7 @@ export default function Footer() {
             <h4 className="text-xs font-semibold tracking-widest uppercase text-[#e8d5a8]/50 mb-6">
               संपर्क · Contact
             </h4>
-            <div className="space-y-8">
+            <div className="space-y-7">
               <a
                 href="tel:+919415415800"
                 className="flex items-center gap-3 text-[#e8d5a8]/70 hover:text-[#e8d5a8] transition-colors text-sm group"
@@ -100,7 +100,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-[#e8d5a8]/10 py-7">
         <p className="text-center text-[#e8d5a8]/30 text-xs leading-relaxed">
-          © {year} Sagar Studio, Gadwara Tiraha, Pratapgarh · All rights reserved<br />
+          © {year} Sagar Studio, Gadwara Tiraha, Pratapgarh · Estd. 1980 · All rights reserved<br />
           Owned &amp; Managed by Rakesh Bahadur Singh
         </p>
       </div>

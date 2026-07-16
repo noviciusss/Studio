@@ -39,7 +39,7 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="pt-36 pb-32 bg-[#fbf6ee]">
+    <section id="about" style={{ paddingTop: "12rem", paddingBottom: "10rem" }} className="bg-[#fbf6ee]">
       <Container>
         <motion.div
           ref={ref}
@@ -66,16 +66,11 @@ export default function About() {
             </p>
 
             <p className="font-devanagari deva-body text-[#2b2320] mb-5 text-base">
-              सागर स्टूडियो प्रतापगढ़ के गड़वारा तिराहा पर पिछले{" "}
-              <strong>40+ वर्षों</strong> से सेवा दे रहा है। हमारे{" "}
-              <strong>दादा जी द्वारा शुरू</strong> किया गया यह स्टूडियो आज
-              फोटोग्राफी से लेकर सरकारी दस्तावेज़ों तक हर ज़रूरत पूरी करता है।
+              सागर स्टूडियो प्रतापगढ़ के गड़वारा तिराहा पर स्थित एक विश्वसनीय स्टूडियो है। यहाँ आपको व्यावसायिक फोटोग्राफी से लेकर सभी प्रकार के सरकारी दस्तावेज़ों की सेवाएं एक ही छत के नीचे मिलती हैं।
             </p>
 
             <p className="text-[#2b2320]/70 text-sm leading-relaxed mb-8">
-              Serving Pratapgarh&apos;s Gadwara Tiraha for over 40 years.
-              Started by our grandfather, Sagar Studio today covers everything
-              from wedding photography to government document services.
+              Located at Gadwara Tiraha, Pratapgarh, Sagar Studio is your trusted partner for high-quality photography, custom printing, and digital government services. We deliver professional and prompt results for all your visual and documentation requirements.
             </p>
 
             {/* Trust badges */}
@@ -121,7 +116,7 @@ export default function About() {
               { value: 40, suffix: "+", label: "वर्षों की सेवा", en: "Years of Service", icon: "🏛️" },
               { value: 7, suffix: "", label: "दिन खुला", en: "Days a Week", icon: "📅" },
               { value: 9, suffix: "AM–8PM", label: "समय", en: "Working Hours", icon: "🕘" },
-              { value: 3, suffix: "", label: "पीढ़ियों का विश्वास", en: "Generations of Trust", icon: "❤️" },
+              { value: 15, suffix: "+", label: "सेवाएं उपलब्ध", en: "Services Offered", icon: "🛠️" },
             ].map((stat, i) => (
               <motion.div
                 key={i}
