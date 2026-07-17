@@ -13,7 +13,7 @@ export default function FloatingWhatsApp() {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 1, duration: 0.5 }}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.9 }}
       className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25d366] text-white flex items-center justify-center shadow-lg hover:bg-[#1da851] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25d366]"
     >

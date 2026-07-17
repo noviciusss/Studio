@@ -18,14 +18,14 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Background gradient */}
+      {/* Background gradient — original */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#6b1616] via-[#8b1e1e] to-[#5a1212]" />
 
       {/* Decorative gold circles */}
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#e8d5a8]/5 blur-3xl" />
       <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#e8d5a8]/8 blur-3xl" />
 
-      {/* Subtle grid texture */}
+      {/* Subtle grid texture — original */}
       <div
         className="absolute inset-0 opacity-5"
         style={{
@@ -45,7 +45,7 @@ export default function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-[#e8d5a8] animate-pulse" />
           <span className="text-[#e8d5a8] text-xs font-medium tracking-wider uppercase">
-            विश्वसनीय सेवाएं · Professional Services
+            Trusted Studio · Serving Pratapgarh
           </span>
         </motion.div>
 
@@ -100,10 +100,26 @@ export default function Hero() {
           <a
             href="tel:+919415415800"
             id="hero-call-btn"
-            className="pulse-red flex items-center gap-3 bg-[#e8d5a8] text-[#8b1e1e] px-8 py-4 rounded-full font-bold text-base hover:bg-white transition-all hover:scale-105 shadow-xl w-full sm:w-auto justify-center"
+            className="pulse-red btn-touch flex items-center gap-3 bg-[#e8d5a8] text-[#8b1e1e] px-8 py-4 rounded-full font-bold text-base shadow-xl w-full sm:w-auto justify-center"
+            style={{
+              transition:
+                "transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease, filter 0.25s ease",
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget;
+              el.style.transform = "translateY(-3px)";
+              el.style.boxShadow = "0 12px 32px rgba(232,213,168,0.25)";
+              el.style.filter = "brightness(1.05)";
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget;
+              el.style.transform = "translateY(0)";
+              el.style.boxShadow = "";
+              el.style.filter = "";
+            }}
           >
             <Phone size={20} />
-            <span>📞 अभी कॉल करें</span>
+            <span>अभी कॉल करें</span>
             <span className="text-xs font-normal opacity-70">Call Now</span>
           </a>
 
@@ -112,10 +128,26 @@ export default function Hero() {
             id="hero-whatsapp-btn"
             target="_blank"
             rel="noopener noreferrer"
-            className="pulse-green flex items-center gap-3 bg-[#25d366] text-white px-8 py-4 rounded-full font-bold text-base hover:bg-[#1da851] transition-all hover:scale-105 shadow-xl w-full sm:w-auto justify-center"
+            className="pulse-green btn-touch flex items-center gap-3 bg-[#25d366] text-white px-8 py-4 rounded-full font-bold text-base shadow-xl w-full sm:w-auto justify-center"
+            style={{
+              transition:
+                "transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease, filter 0.25s ease",
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget;
+              el.style.transform = "translateY(-3px)";
+              el.style.boxShadow = "0 12px 32px rgba(37,211,102,0.3)";
+              el.style.filter = "brightness(1.05)";
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget;
+              el.style.transform = "translateY(0)";
+              el.style.boxShadow = "";
+              el.style.filter = "";
+            }}
           >
             <MessageCircle size={20} />
-            <span>💬 WhatsApp करें</span>
+            <span>WhatsApp करें</span>
             <span className="text-xs font-normal opacity-70">WhatsApp Now</span>
           </a>
         </motion.div>

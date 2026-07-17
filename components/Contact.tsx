@@ -10,7 +10,11 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="contact" style={{ paddingTop: "10rem", paddingBottom: "10rem" }} className="bg-[#fbf6ee]">
+    <section
+      id="contact"
+      style={{ paddingTop: "10rem", paddingBottom: "10rem" }}
+      className="bg-[#fbf6ee]"
+    >
       <Container>
         {/* Title */}
         <motion.div
@@ -18,127 +22,105 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
-          <div className="flex items-center justify-center gap-3 mb-10">
-            <div className="w-10 h-0.5 bg-[#8b1e1e]" />
-            <span className="text-[#8b1e1e] text-xs font-semibold tracking-widest uppercase">
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <div className="w-8 h-px bg-[#5a4632]/50" />
+            <span className="text-[#5a4632] text-[11px] font-medium tracking-[0.25em] uppercase">
               हमसे मिलें · Visit Us
             </span>
-            <div className="w-10 h-0.5 bg-[#8b1e1e]" />
+            <div className="w-8 h-px bg-[#5a4632]/50" />
           </div>
           <h2 className="font-devanagari deva-heading text-4xl sm:text-5xl font-bold text-[#2b2320] mb-4 pt-3">
             संपर्क करें
           </h2>
-          <p className="text-[#2b2320]/60 text-sm">Contact us anytime</p>
+          <p className="text-[#2b2320]/55 text-sm">Contact us anytime</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Info cards */}
-          <div className="space-y-5">
+        {/* Two-column layout: info left, map right */}
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
+          {/* Info cards — left */}
+          <div className="space-y-3">
+
             {/* Address */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="bg-white rounded-2xl p-6 border border-[#e8d5a8]/40 flex gap-5"
+              className="bg-white rounded-xl p-4 border border-[#e8d5a8]/40 flex gap-4 items-center hover:shadow-sm transition-shadow"
             >
-              <div className="w-11 h-11 rounded-xl bg-[#8b1e1e] flex items-center justify-center text-white flex-shrink-0">
-                <MapPin size={18} />
+              <div className="w-9 h-9 rounded-lg bg-[#8b1e1e] flex items-center justify-center text-white flex-shrink-0">
+                <MapPin size={15} />
               </div>
               <div>
-                <p className="font-semibold text-[#2b2320] text-sm mb-2">
-                  पता · Address
-                </p>
-                <p className="font-devanagari text-[#2b2320] text-sm" style={{ lineHeight: 1.9 }}>
+                <p className="font-semibold text-[#2b2320] text-xs mb-1">पता · Address</p>
+                <p className="font-devanagari text-[#2b2320] text-sm" style={{ lineHeight: 1.8 }}>
                   गड़वारा तिराहा, प्रतापगढ़, उत्तर प्रदेश — 230502
                 </p>
-                <p className="text-[#2b2320]/50 text-xs mt-1">
+                <p className="text-[#2b2320]/45 text-xs mt-0.5">
                   Gadwara Tiraha, Pratapgarh, UP – 230502
                 </p>
               </div>
             </motion.div>
 
-            {/* Owner Info Card */}
+            {/* Phone — visually strongest */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.15, duration: 0.6 }}
-              className="bg-white rounded-2xl p-6 border border-[#e8d5a8]/40 flex gap-5 items-center"
+              transition={{ delay: 0.18, duration: 0.6 }}
+              className="pulse-red bg-[#8b1e1e] rounded-xl p-4 border border-[#8b1e1e]/20 flex gap-4 items-center"
             >
-              <div className="w-11 h-11 rounded-xl bg-[#8b1e1e] flex items-center justify-center text-[#e8d5a8] text-lg font-bold flex-shrink-0">
-                👤
-              </div>
-              <div>
-                <p className="text-[#8b1e1e] text-[10px] uppercase font-bold tracking-wider mb-1">
-                  स्वामी · Proprietor
-                </p>
-                <h4 className="font-devanagari text-lg font-bold text-[#2b2320]" style={{ lineHeight: 1.4 }}>
-                  राकेश बहादुर सिंह
-                </h4>
-                <p className="text-[#2b2320]/60 text-xs font-medium">
-                  Rakesh Bahadur Singh
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Phone */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="bg-white rounded-2xl p-6 border border-[#e8d5a8]/40 flex gap-5 items-center"
-            >
-              <div className="w-11 h-11 rounded-xl bg-[#8b1e1e] flex items-center justify-center text-white flex-shrink-0">
-                <Phone size={18} />
+              <div className="w-9 h-9 rounded-lg bg-white/20 flex items-center justify-center text-white flex-shrink-0">
+                <Phone size={15} />
               </div>
               <div className="flex-1">
-                <p className="font-semibold text-[#2b2320] text-sm mb-1">
-                  फ़ोन · Phone
-                </p>
+                <p className="font-semibold text-white/70 text-xs mb-0.5">फ़ोन · Phone</p>
                 <a
                   href="tel:+919415415800"
                   id="contact-call-btn"
-                  className="text-[#8b1e1e] font-bold text-xl hover:underline"
+                  className="text-white font-bold text-lg hover:text-[#e8d5a8] transition-colors"
                 >
                   9415415800
                 </a>
               </div>
               <a
                 href="tel:+919415415800"
-                className="bg-[#8b1e1e] text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-[#6b1616] transition-all hover:scale-105 shadow-md flex-shrink-0 flex items-center gap-1.5"
+                className="bg-white text-[#8b1e1e] px-5 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 flex-shrink-0 hover:bg-[#e8d5a8] transition-colors"
               >
-                <span>📞 Call Now</span>
+                <Phone size={12} />
+                Call Now
               </a>
             </motion.div>
 
-            {/* WhatsApp */}
+            {/* WhatsApp — expands on hover */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="bg-white rounded-2xl p-6 border border-[#e8d5a8]/40 flex gap-5 items-center"
+              transition={{ delay: 0.26, duration: 0.6 }}
+              className="bg-white rounded-xl p-4 border border-[#e8d5a8]/40 flex gap-4 items-center hover:border-[#25d366]/40 hover:bg-[#f0fdf4] transition-all group"
             >
-              <div className="w-11 h-11 rounded-xl bg-[#25d366] flex items-center justify-center text-white flex-shrink-0">
-                <MessageCircle size={18} />
+              <div className="w-9 h-9 rounded-lg bg-[#25d366] flex items-center justify-center text-white flex-shrink-0">
+                <MessageCircle size={15} />
               </div>
               <div className="flex-1">
-                <p className="font-semibold text-[#2b2320] text-sm mb-1">
-                  WhatsApp
-                </p>
-                <p className="font-devanagari text-[#2b2320]/60 text-xs" style={{ lineHeight: 1.7 }}>
+                <p className="font-semibold text-[#2b2320] text-xs mb-0.5">WhatsApp</p>
+                <p className="font-devanagari text-[#2b2320]/55 text-xs" style={{ lineHeight: 1.7 }}>
                   फाइल भेजें, प्रिंट करवाएं
                 </p>
-                <p className="text-[#2b2320]/40 text-xs">Send file, get prints</p>
+                <p className="text-[#2b2320]/35 text-xs">Send file, get prints</p>
               </div>
               <a
                 href="https://wa.me/919415415800"
                 id="contact-wa-btn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#25d366] text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-[#1da851] transition-all hover:scale-105 shadow-md flex-shrink-0 flex items-center gap-1.5"
+                className="bg-[#25d366] text-white px-4 py-2 rounded-full text-xs font-semibold flex items-center gap-1.5 flex-shrink-0 overflow-hidden transition-all duration-300"
               >
-                <span>💬 Chat Now</span>
+                <MessageCircle size={12} />
+                <span>Chat</span>
+                <span className="max-w-0 overflow-hidden group-hover:max-w-[80px] transition-all duration-300 whitespace-nowrap">
+                  &nbsp;WhatsApp Us
+                </span>
               </a>
             </motion.div>
 
@@ -146,62 +128,56 @@ export default function Contact() {
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="bg-white rounded-2xl p-6 border border-[#e8d5a8]/40 flex gap-5"
+              transition={{ delay: 0.34, duration: 0.6 }}
+              className="bg-white rounded-xl p-4 border border-[#e8d5a8]/40 flex gap-4 hover:shadow-sm transition-shadow"
             >
-              <div className="w-11 h-11 rounded-xl bg-[#e8d5a8] flex items-center justify-center text-[#8b1e1e] flex-shrink-0">
-                <Clock size={18} />
+              <div className="w-9 h-9 rounded-lg bg-[#e8d5a8] flex items-center justify-center text-[#8b1e1e] flex-shrink-0">
+                <Clock size={15} />
               </div>
               <div>
-                <p className="font-semibold text-[#2b2320] text-sm mb-2">
-                  समय · Timings
-                </p>
-                <p className="font-devanagari text-[#2b2320] text-sm" style={{ lineHeight: 1.9 }}>
+                <p className="font-semibold text-[#2b2320] text-xs mb-1">समय · Timings</p>
+                <p className="font-devanagari text-[#2b2320] text-sm" style={{ lineHeight: 1.8 }}>
                   खुला है सातों दिन — सुबह 9 बजे से रात 8 बजे तक
                 </p>
-                <p className="text-[#2b2320]/50 text-xs mt-1">
+                <p className="text-[#2b2320]/45 text-xs mt-0.5">
                   Open 7 days a week · 9:00 AM – 8:00 PM
                 </p>
-                <div className="mt-3 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-green-600 text-xs font-medium">
-                    Open Today
-                  </span>
+                <div className="mt-2 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-green-600 text-xs font-medium">Open Today</span>
                 </div>
               </div>
             </motion.div>
 
-            {/* Get Directions */}
+            {/* Get Directions — dark background */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.5, duration: 0.6 }}
+              transition={{ delay: 0.42, duration: 0.6 }}
             >
               <a
                 href="https://maps.app.goo.gl/qEgnYj78iWgBMDz39"
                 id="get-directions-btn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 w-full bg-[#8b1e1e] text-[#e8d5a8] px-6 py-4.5 rounded-2xl font-bold text-base hover:bg-[#6b1616] transition-all hover:scale-[1.02] shadow-lg shadow-[#8b1e1e]/20"
-                style={{ padding: "1.1rem 1.5rem" }}
+                className="btn-touch flex items-center justify-center gap-3 w-full bg-[#2b2320] text-[#e8d5a8] px-5 py-3.5 rounded-xl font-bold text-sm hover:bg-[#1a1614] transition-all hover:-translate-y-0.5 shadow-md"
               >
-                <Navigation size={20} />
+                <Navigation size={17} />
                 <span className="font-devanagari" style={{ lineHeight: 1.5 }}>
-                  🗺️ रास्ता देखें
+                  रास्ता देखें
                 </span>
-                <span className="text-[#e8d5a8]/60 font-normal text-sm">
-                  · Get Directions
-                </span>
+                <span className="text-[#e8d5a8]/50 font-normal text-xs">· Get Directions</span>
               </a>
             </motion.div>
           </div>
 
-          {/* Google Map */}
+          {/* Google Map — right */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="rounded-3xl overflow-hidden shadow-xl border border-[#e8d5a8]/40 h-[460px]"
+            className="rounded-2xl overflow-hidden shadow-lg border border-[#e8d5a8]/40"
+            style={{ height: "460px" }}
           >
             <iframe
               src="https://maps.google.com/maps?q=Sagar+Studio+Gadwara+Tiraha+Pratapgarh+UP&t=&z=16&ie=UTF8&iwloc=&output=embed"

@@ -8,6 +8,7 @@
   --color-accent: #e8d5a8;
   --color-accent-dark: #d4bc8a;
   --color-accent-light: #f2e5c0;
+  --color-bronze: #5a4632;
   --color-dark: #2b2320;
   --color-cream: #fbf6ee;
   --color-cream-dark: #f0e8d8;
@@ -17,10 +18,10 @@
   --font-sans: "Poppins", sans-serif;
 }
 
+/* ─── Reset ─────────────────────────────────────────── */
 * {
-  margin: 0;
-  /* padding: 0; */
   box-sizing: border-box;
+  /* margin: 0; */
 }
 
 html {
@@ -32,14 +33,25 @@ body {
   color: #2b2320;
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* ─── Typography ─────────────────────────────────────── */
 .font-devanagari {
   font-family: "Noto Serif Devanagari", serif;
   line-height: 1.85;
 }
 
-/* Centering container — bypasses Tailwind v4 max-w naming issues */
+.deva-heading {
+  line-height: 1.5;
+  padding-top: 0.25rem;
+}
+
+.deva-body {
+  line-height: 2;
+}
+
+/* ─── Layout Containers ──────────────────────────────── */
 .section-container {
   width: 100%;
   max-width: 1240px;
@@ -72,19 +84,9 @@ body {
   padding-right: 1.5rem;
 }
 
-/* Extra breathing room for Devanagari headings so top matras aren't cut */
-.deva-heading {
-  line-height: 1.5;
-  padding-top: 0.25rem;
-}
-
-.deva-body {
-  line-height: 2;
-}
-
-/* Custom scrollbar */
+/* ─── Custom Scrollbar ───────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: #fbf6ee;
@@ -94,13 +96,126 @@ body {
   border-radius: 3px;
 }
 
-/* Pulse animation for CTA buttons */
+/* ─── Film Grain Texture (CSS-only, no image needed) ─── */
+.film-grain {
+  position: relative;
+}
+
+.film-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  z-index: 1;
+}
+
+/* ─── Photography Decorative Elements ───────────────── */
+
+/* Thin gold divider */
+.divider-gold {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #5a4632 30%,
+    #5a4632 70%,
+    transparent
+  );
+  opacity: 0.35;
+  margin: 0 auto;
+}
+
+/* Section divider with ornament */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #5a4632 80%);
+  opacity: 0.3;
+}
+
+.section-divider::after {
+  background: linear-gradient(to left, transparent, #5a4632 80%);
+}
+
+/* Camera-corner frame decoration */
+.camera-corner {
+  position: relative;
+}
+
+.camera-corner::before,
+.camera-corner::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: #5a4632;
+  border-style: solid;
+  opacity: 0.4;
+}
+
+.camera-corner::before {
+  top: 0;
+  left: 0;
+  border-width: 2px 0 0 2px;
+}
+
+.camera-corner::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 2px 2px 0;
+}
+
+/* Soft vignette overlay */
+.vignette-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.vignette-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(43, 35, 32, 0.08) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Mobile Touch Targets ───────────────────────────── */
+.btn-touch {
+  min-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  a[href^="tel"],
+  a[href^="https://wa.me"] {
+    min-height: 56px;
+  }
+}
+
+/* ─── Pulse Animations ───────────────────────────────── */
 @keyframes pulse-ring {
   0% {
-    box-shadow: 0 0 0 0 rgba(139, 30, 30, 0.4);
+    box-shadow: 0 0 0 0 rgba(139, 30, 30, 0.35);
   }
   70% {
-    box-shadow: 0 0 0 16px rgba(139, 30, 30, 0);
+    box-shadow: 0 0 0 14px rgba(139, 30, 30, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(139, 30, 30, 0);
@@ -109,10 +224,10 @@ body {
 
 @keyframes pulse-ring-green {
   0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.35);
   }
   70% {
-    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
@@ -120,14 +235,14 @@ body {
 }
 
 .pulse-red {
-  animation: pulse-ring 2s infinite;
+  animation: pulse-ring 2.5s infinite;
 }
 
 .pulse-green {
-  animation: pulse-ring-green 2s infinite;
+  animation: pulse-ring-green 2.5s infinite;
 }
 
-/* Gold shimmer on headings */
+/* ─── Motion Keyframes ───────────────────────────────── */
 @keyframes shimmer {
   0% {
     background-position: -200% center;
@@ -137,6 +252,38 @@ body {
   }
 }
 
+@keyframes slide-up-soft {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in-soft {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Gold shimmer on headings */
 .text-shimmer {
   background: linear-gradient(
     90deg,
@@ -151,4 +298,41 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 4s linear infinite;
+}
+
+/* ─── Aperture Ornament ──────────────────────────────── */
+.aperture-ornament {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aperture-ornament::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  opacity: 0.15;
+  transform: scale(1.2);
+}
+
+.aperture-ornament::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  opacity: 0.08;
+  transform: scale(1.5);
+}
+
+/* ─── Focus & Accessibility ──────────────────────────── */
+:focus-visible {
+  outline: 2px solid #e8d5a8;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
