@@ -64,10 +64,10 @@ export default function Navbar() {
           onClick={() => setMenuOpen(false)}
         >
           <span className="font-devanagari text-xl font-bold text-[#e8d5a8] group-hover:text-white transition-colors duration-300">
-            सागर स्टूडियो
+            सागर प्रेस
           </span>
           <span className="text-[10px] text-[#e8d5a8]/50 font-light tracking-[0.3em] uppercase">
-            Sagar Studio
+            Sagar Press
           </span>
         </Link>
 

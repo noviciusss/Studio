@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "सागर स्टूडियो | Sagar Studio — Gadwara Tiraha, Pratapgarh",
+  title: "सागर प्रेस | Sagar Press — Gadwara Tiraha, Pratapgarh",
   description:
-    "सागर स्टूडियो — प्रतापगढ़ का भरोसेमंद स्टूडियो। शादी की फोटोग्राफी, प्रिंटिंग और सरकारी सेवाएं। Trusted photography studio in Pratapgarh offering wedding photography, printing, and government document services. Call: 9415415800",
+    "सागर प्रेस — प्रतापगढ़ का भरोसेमंद प्रेस। शादी की फोटोग्राफी, प्रिंटिंग और सरकारी सेवाएं। Trusted printing press in Pratapgarh offering wedding photography, printing, and government document services. Call: 9415415800",
   keywords: [
-    "सागर स्टूडियो",
-    "Sagar Studio",
+    "सागर प्रेस",
+    "Sagar Press",
     "Pratapgarh",
     "प्रतापगढ़",
     "photography",
@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     "wedding photography",
     "Gadwara Tiraha",
     "गड़वारा तिराहा",
-    "studio Pratapgarh",
+    "press Pratapgarh",
   ],
   openGraph: {
-    title: "सागर स्टूडियो | Sagar Studio — Pratapgarh",
+    title: "सागर प्रेस | Sagar Press — Pratapgarh",
     description:
-      "प्रतापगढ़ का भरोसेमंद स्टूडियो — शादी की फोटोग्राफी, प्रिंटिंग और सरकारी सेवाएं।",
+      "प्रतापगढ़ का भरोसेमंद प्रेस — शादी की फोटोग्राफी, प्रिंटिंग और सरकारी सेवाएं।",
     type: "website",
     locale: "hi_IN",
     images: [
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Sagar Studio — Pratapgarh's Trusted Photography Studio",
+        alt: "Sagar Press — Pratapgarh's Trusted Printing Press",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sagar Studio — Pratapgarh",
-    description: "Trusted photography, printing and government services in Pratapgarh.",
+    title: "Sagar Press — Pratapgarh",
+    description: "Trusted printing, photography and government services in Pratapgarh.",
     images: ["/og-image.png"],
   },
 };
@@ -46,11 +46,11 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Sagar Studio",
-  alternateName: "सागर स्टूडियो",
+  name: "Sagar Press",
+  alternateName: "सागर प्रेस",
   image: "/og-image.png",
   description:
-    "Professional photography studio in Pratapgarh offering wedding photography, printing, and government document services.",
+    "Professional printing press in Pratapgarh offering wedding photography, printing, and government document services.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Gadwara Tiraha",

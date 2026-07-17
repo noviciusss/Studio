@@ -15,7 +15,7 @@ const items = [
     category: "Wedding",
     img: "/gallery/wedding.png",
     aspect: "aspect-[5/6]",
-    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपकी शादी की फोटोग्राफी के सैंपल देखने हैं।",
+    waMsg: "नमस्ते सागर प्रेस, मुझे आपकी शादी की फोटोग्राफी के सैंपल देखने हैं।",
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const items = [
     category: "Wedding",
     img: "/gallery/wedding.png",
     aspect: "aspect-square",
-    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपके प्री-वेडिंग शूट के सैंपल देखने हैं।",
+    waMsg: "नमस्ते सागर प्रेस, मुझे आपके प्री-वेडिंग शूट के सैंपल देखने हैं।",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const items = [
     category: "Portrait",
     img: "/gallery/portrait.png",
     aspect: "aspect-[6/5]",
-    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपके पारिवारिक पोर्ट्रेट के सैंपल देखने हैं।",
+    waMsg: "नमस्ते सागर प्रेस, मुझे आपके पारिवारिक पोर्ट्रेट के सैंपल देखने हैं।",
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const items = [
     category: "Events",
     img: "/gallery/wedding.png",
     aspect: "aspect-square",
-    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपके इवेंट कवरेज के सैंपल देखने हैं।",
+    waMsg: "नमस्ते सागर प्रेस, मुझे आपके इवेंट कवरेज के सैंपल देखने हैं।",
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const items = [
     category: "Portrait",
     img: "/gallery/portrait.png",
     aspect: "aspect-[5/6]",
-    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपके कैंडिड शूट के सैंपल देखने हैं।",
+    waMsg: "नमस्ते सागर प्रेस, मुझे आपके कैंडिड शूट के सैंपल देखने हैं।",
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ const items = [
     category: "Printing",
     img: "/gallery/printing.png",
     aspect: "aspect-square",
-    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपके शादी के कार्ड के सैंपल देखने हैं।",
+    waMsg: "नमस्ते सागर प्रेस, मुझे आपके शादी के कार्ड के सैंपल देखने हैं।",
   },
   {
     id: 7,
@@ -69,7 +69,7 @@ const items = [
     category: "Printing",
     img: "/gallery/printing.png",
     aspect: "aspect-[6/5]",
-    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपकी कस्टम प्रिंटिंग के सैंपल देखने हैं।",
+    waMsg: "नमस्ते सागर प्रेस, मुझे आपकी कस्टम प्रिंटिंग के सैंपल देखने हैं।",
   },
   {
     id: 8,
@@ -78,7 +78,7 @@ const items = [
     category: "Cards",
     img: "/gallery/special.png",
     aspect: "aspect-square",
-    waMsg: "नमस्ते सागर स्टूडियो, मुझे आपके फोटो फ्रेम और एल्बम के सैंपल देखने हैं।",
+    waMsg: "नमस्ते सागर प्रेस, मुझे आपके फोटो फ्रेम और एल्बम के सैंपल देखने हैं।",
   },
 ];
 
@@ -210,7 +210,7 @@ export default function Gallery() {
           className="mt-14 text-center"
         >
           <a
-            href="https://wa.me/919415415800?text=नमस्ते%20सागर%20स्टूडियो%2C%20मुझे%20आपके%20काम%20की%20गैलरी%20के%20और%20सैंपल्स%20देखने%20हैं।"
+            href="https://wa.me/919415415800?text=नमस्ते%20सागर%20प्रेस%2C%20मुझे%20आपके%20काम%20की%20गैलरी%20के%20और%20सैंपल्स%20देखने%20हैं।"
             id="gallery-wa-btn"
             target="_blank"
             rel="noopener noreferrer"

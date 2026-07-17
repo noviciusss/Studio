@@ -57,7 +57,7 @@ export default function Hero() {
           animate="visible"
           className="font-devanagari text-5xl sm:text-7xl font-bold mb-4 text-shimmer pt-4 deva-heading"
         >
-          सागर स्टूडियो
+          सागर प्रेस
         </motion.h1>
 
         <motion.p
@@ -67,7 +67,7 @@ export default function Hero() {
           animate="visible"
           className="text-[#e8d5a8]/60 text-base sm:text-lg tracking-[0.3em] uppercase font-light mb-6"
         >
-          Sagar Studio
+          Sagar Press
         </motion.p>
 
         {/* Subheading */}

@@ -59,20 +59,20 @@ export default function About() {
             transition={{ delay: 0.1, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <h2 className="font-devanagari deva-heading text-4xl sm:text-5xl font-bold text-[#2b2320] mb-2 leading-tight">
-              प्रतापगढ़ का भरोसेमंद स्टूडियो
+              प्रतापगढ़ का भरोसेमंद प्रेस
             </h2>
             <p className="text-[#8b1e1e] text-sm font-medium tracking-wide mb-8">
-              Pratapgarh&apos;s Most Trusted Studio
+              Pratapgarh&apos;s Most Trusted Press
             </p>
 
             {/* Warm story — Hindi */}
             <p className="font-devanagari deva-body text-[#2b2320] text-base mb-5" style={{ lineHeight: 2.1 }}>
-              चाहे शादी की यादें हों, पासपोर्ट फोटो हो, या जरूरी कागज़ात — गड़वारा तिराहे के आसपास के परिवार सालों से सागर स्टूडियो पर भरोसा करते आए हैं।
+              चाहे शादी की यादें हों, पासपोर्ट फोटो हो, या जरूरी कागज़ात — गड़वारा तिराहे के आसपास के परिवार सालों से सागर प्रेस पर भरोसा करते आए हैं।
             </p>
 
             {/* Warm story — English */}
             <p className="text-[#2b2320]/65 text-sm leading-relaxed mb-10">
-              Whether it&apos;s wedding memories, passport photographs, or important documents — families around Gadwara Tiraha have trusted Sagar Studio for years. We bring the same care and quality to every single job, whether it&apos;s a grand wedding album or a simple photocopy.
+              Whether it&apos;s wedding memories, passport photographs, or important documents — families around Gadwara Tiraha have trusted Sagar Press for years. We bring the same care and quality to every single job, whether it&apos;s a grand wedding album or a simple photocopy.
             </p>
 
             {/* Gold divider */}

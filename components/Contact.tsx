@@ -180,14 +180,14 @@ export default function Contact() {
             style={{ height: "460px" }}
           >
             <iframe
-              src="https://maps.google.com/maps?q=Sagar+Studio+Gadwara+Tiraha+Pratapgarh+UP&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Sagar+Press+Gadwara+Tiraha+Pratapgarh+UP&t=&z=16&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Sagar Studio location on Google Maps"
+              title="Sagar Press location on Google Maps"
             />
           </motion.div>
         </div>

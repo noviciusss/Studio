@@ -14,10 +14,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <h3 className="font-devanagari text-2xl font-bold text-[#e8d5a8] mb-2" style={{ lineHeight: 1.7 }}>
-              सागर स्टूडियो
+              सागर प्रेस
             </h3>
             <p className="text-[#e8d5a8]/50 text-xs tracking-widest uppercase mb-4">
-              Sagar Studio
+              Sagar Press
             </p>
             <p className="font-devanagari text-[#e8d5a8]/70 text-sm mb-1" style={{ lineHeight: 1.9 }}>
               विश्वसनीय फोटोग्राफी एवं डिजिटल सेवाएं
@@ -100,7 +100,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-[#e8d5a8]/10 py-7">
         <p className="text-center text-[#e8d5a8]/30 text-xs leading-relaxed">
-          © {year} Sagar Studio, Gadwara Tiraha, Pratapgarh · Estd. 1980 · All rights reserved<br />
+          © {year} Sagar Press, Gadwara Tiraha, Pratapgarh · Estd. 1980 · All rights reserved<br />
           Owned &amp; Managed by Rakesh Bahadur Singh
         </p>
       </div>
